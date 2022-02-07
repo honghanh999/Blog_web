@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Edit Post</title>
+{% endblock %}
+
+{% block body %} 
+<h1>Editting Post</h1>
+<hr>
+<h2>Edit:</h2>
+<!-- The old form -->
+
+<!-- <form action='/posts/edit/{{post.id}}' method = 'POST'>
+    Title: 
+    <input type='text' name='title' id='title', value="{{post.title}}">
+    <br>
+    Post: 
+    <input type='text' name='content' id='content', value="{{post.content}}">>
+    <br>
+    Author: 
+    <input type='text' name='author' id='author', value="{{post.author}}">>
+    <br>
+    <input type= 'submit' value='Save'>
+</form> -->
+
+<!-- The new form -->
+<form action='/posts/edit/{{post.id}}' method = 'POST'>
+    <label for="title">Title:</label>
+    <!-- <input type='text' name='title' id='title'> -->
+    <br>
+    <input  class="for m-control" type="text" name='title' id='title' value="{{post.title}}" aria-label="Enter Title">
+    <br>
+    <label for="author">Author:</label>
+    <!-- <input type='text' name='author' id='author'> -->
+    <input  class="form-control" type="text" name='author' id='author' value="{{post.author}}" aria-label="Enter Author">
+    <br>
+    <!-- <input type='text' name='content' id='content'> -->
+    <label for="content">Post:</label>
+    <!-- <input type="text" name='content' id='content' placeholder="Enter content" aria-label="Enter Content"> -->
+    <!-- Because everything within this text tag is gonna be what's inside the content so instead of using value -->
+    <textarea class="form-control" name='content' id="content" rows="6" aria-label="Enter Content">{{post.content}}</textarea>
+    <br>
+    <input type= 'submit' value='Save'>
+    <hr>
+</form>
+</hr>
+{% endblock %}
